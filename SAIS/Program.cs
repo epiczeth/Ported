@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
+
 namespace SAIS
 {
     internal static class Program
@@ -13,9 +14,11 @@ namespace SAIS
         [STAThread]
         private static void Main()
         {
+            new Config().GetConfig();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmSplash());
+
         }
     }
 }

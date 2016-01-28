@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SAIS
 {
@@ -19,7 +20,7 @@ namespace SAIS
                 return myCp;
             }
         }
-        private String cs = "Data Source=(local);Initial Catalog=sais;Integrated Security=True";
+        private String cs = string.Format("Data Source={0};Initial Catalog=sais;User ID={1};Password={2};", Config.datasource, Config.userid, Config.password);
 
         public frmLogin()
         {
@@ -102,6 +103,11 @@ namespace SAIS
         {
             ProgressBar1.Visible = false;
             txtUserName.Focus();
+            ConnectionStringSettings st = ConfigurationManager.ConnectionStrings["SAIS.Properties.Settings.saisConnectionString"];
+            string connection = st.ConnectionString;
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connection) { DataSource = Config.datasource , UserID = Config.userid, Password = Config.password };
+            this.Text = builder.ConnectionString;
+          
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

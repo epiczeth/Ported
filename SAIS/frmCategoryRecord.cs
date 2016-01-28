@@ -13,7 +13,7 @@ namespace SAIS
         private SqlDataReader rdr = null;
         private SqlConnection con = null;
         private SqlCommand cmd = null;
-        private String cs = "Data Source=(local);Initial Catalog=sais;Integrated Security=True";
+        private String cs = string.Format("Data Source={0};Initial Catalog=sais;User ID={1};Password={2};", Config.datasource, Config.userid, Config.password);
 
         public frmCategoryRecord()
         {
