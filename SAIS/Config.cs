@@ -39,7 +39,7 @@ namespace SAIS
            sw.Write("user=sa" + Environment.NewLine);
            sw.Write("password=" + Environment.NewLine);
            sw.Close();
-  
+  	goto lb0;
        }
        }
 
