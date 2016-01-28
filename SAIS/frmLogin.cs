@@ -106,7 +106,7 @@ namespace SAIS
             ConnectionStringSettings st = ConfigurationManager.ConnectionStrings["SAIS.Properties.Settings.saisConnectionString"];
             string connection = st.ConnectionString;
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connection) { DataSource = Config.datasource , UserID = Config.userid, Password = Config.password };
-            this.Text = builder.ConnectionString;
+    
           
         }
 
